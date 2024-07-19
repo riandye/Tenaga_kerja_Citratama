@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "64b1706f-3e08-4fc9-a395-a8c264bb8c15",
+		"name": "berita",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35175328",
+		"_collection_link": "https://tenaga-kerja.postman.co/workspace/36bba3a6-f217-4226-8122-628bc8597c86/collection/35175328-64b1706f-3e08-4fc9-a395-a8c264bb8c15?action=share&source=collection_link&creator=35175328"
+	},
+	"item": [
+		{
+			"name": "show_berita",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/admin/berita",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"admin",
+						"berita"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "input_berita",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "judul",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "konten",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "tanggal",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "gambar",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/admin/tambah-berita",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"admin",
+						"tambah-berita"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "judul",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "konten",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "gambar",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "tanggal",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/admin/update-berita/{id}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"admin",
+						"update-berita",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/admin/berita/{id}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"admin",
+						"berita",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,963 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "MY API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8000"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "paths": {
+    "/api/jadwal/add": {
+      "post": {
+        "tags": [
+          "Jadwal"
+        ],
+        "summary": "add_jadwal",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tanggal": {
+                    "type": "string"
+                  },
+                  "tempat": {
+                    "type": "string"
+                  },
+                  "user_ids[]": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/jadwal": {
+      "get": {
+        "tags": [
+          "Jadwal"
+        ],
+        "summary": "show_jadwal",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/berita": {
+      "get": {
+        "tags": [
+          "Berita"
+        ],
+        "summary": "show_berita",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/tambah-berita": {
+      "post": {
+        "tags": [
+          "Berita"
+        ],
+        "summary": "input_berita",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "judul": {
+                    "type": "string"
+                  },
+                  "konten": {
+                    "type": "string"
+                  },
+                  "tanggal": {
+                    "type": "string"
+                  },
+                  "gambar": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/update-berita/{id}": {
+      "post": {
+        "tags": [
+          "Berita"
+        ],
+        "summary": "update",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "judul": {
+                    "type": "string"
+                  },
+                  "konten": {
+                    "type": "string"
+                  },
+                  "gambar": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "tanggal": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/berita/{id}": {
+      "delete": {
+        "tags": [
+          "Berita"
+        ],
+        "summary": "delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/tambah-pelamar": {
+      "post": {
+        "tags": [
+          "Admin-pelamar"
+        ],
+        "summary": "add_user",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "alamat": {
+                    "type": "string"
+                  },
+                  "tempat_tanggal_lahir": {
+                    "type": "string"
+                  },
+                  "no_hp": {
+                    "type": "string"
+                  },
+                  "klasifikasi_pilihan": {
+                    "type": "string"
+                  },
+                  "sub_klasifikasi_pilihan": {
+                    "type": "string"
+                  },
+                  "photo": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/update-pelamar/{id}": {
+      "post": {
+        "tags": [
+          "Admin-pelamar"
+        ],
+        "summary": "update_user",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "alamat": {
+                    "type": "string"
+                  },
+                  "tempat_lahir": {
+                    "type": "string"
+                  },
+                  "tanggal_lahir": {
+                    "type": "string"
+                  },
+                  "no_hp": {
+                    "type": "string"
+                  },
+                  "klasifikasi_pilihan": {
+                    "type": "string"
+                  },
+                  "sub_klasifikasi_pilihan": {
+                    "type": "string"
+                  },
+                  "photo": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/pelamar": {
+      "get": {
+        "tags": [
+          "Admin-pelamar"
+        ],
+        "summary": "show_user",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/pelamar/{id}": {
+      "delete": {
+        "tags": [
+          "Admin-pelamar"
+        ],
+        "summary": "delete_user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/tambah-mitra": {
+      "post": {
+        "tags": [
+          "Admin-mitra"
+        ],
+        "summary": "add_mitra",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "alamat": {
+                    "type": "string"
+                  },
+                  "no_hp": {
+                    "type": "string"
+                  },
+                  "bidang_usaha": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/update-mitra/{id}": {
+      "post": {
+        "tags": [
+          "Admin-mitra"
+        ],
+        "summary": "update_mitra",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "alamat": {
+                    "type": "string"
+                  },
+                  "no_hp": {
+                    "type": "string"
+                  },
+                  "bidang_usaha": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/mitra": {
+      "get": {
+        "tags": [
+          "Admin-mitra"
+        ],
+        "summary": "show_mitra",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/mitra/{id}": {
+      "delete": {
+        "tags": [
+          "Admin-mitra"
+        ],
+        "summary": "delete_mitra",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/sendWA/{jadwal}": {
+      "post": {
+        "tags": [
+          "SendWA"
+        ],
+        "summary": "send_WA",
+        "requestBody": {
+          "content": {}
+        },
+        "parameters": [
+          {
+            "name": "jadwal",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/approve/{recruitment}": {
+      "post": {
+        "tags": [
+          "Admin-approve"
+        ],
+        "summary": "approve_recruitment",
+        "requestBody": {
+          "content": {}
+        },
+        "parameters": [
+          {
+            "name": "recruitment",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/login": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "login",
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code.",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "password_confirmation": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/logout": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "logout",
+        "description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code.",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/register": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "register",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "password_confirmation": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/datadiri": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "datadiri",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "alamat": {
+                    "type": "string"
+                  },
+                  "tempat_lahir": {
+                    "type": "string"
+                  },
+                  "tanggal_lahir": {
+                    "type": "string"
+                  },
+                  "no_hp": {
+                    "type": "string"
+                  },
+                  "klasifikasi_pilihan": {
+                    "type": "string"
+                  },
+                  "sub_klasifikasi_pilihan": {
+                    "type": "string"
+                  },
+                  "photo": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "lokasi": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/show-profile": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "showprofile",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/update-profile/{id}": {
+      "post": {
+        "tags": [
+          "default"
+        ],
+        "summary": "update-profile",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "summary": {
+                    "type": "string"
+                  },
+                  "education": {
+                    "type": "string"
+                  },
+                  "career": {
+                    "type": "string"
+                  },
+                  "certificatios": {
+                    "type": "string"
+                  },
+                  "skills": {
+                    "type": "string"
+                  },
+                  "languages": {
+                    "type": "string"
+                  },
+                  "location": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/userTersedia": {
+      "get": {
+        "tags": [
+          "Perusahaan mitra"
+        ],
+        "summary": "show_userTersedia",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/recruit": {
+      "post": {
+        "tags": [
+          "Recruitment"
+        ],
+        "summary": "recruitment",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ID_user": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth":[]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/recruit/confirm/{id}": {
+      "post": {
+        "tags": [
+          "Recruitment"
+        ],
+        "summary": "confirm_recruitment",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/recruitments": {
+      "get": {
+        "tags": [
+          "Recruitment"
+        ],
+        "summary": "show_recruitment",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/userStatus": {
+      "get": {
+        "tags": [
+          "Recruitment"
+        ],
+        "summary": "Show_AllUser",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
+  

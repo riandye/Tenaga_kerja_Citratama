@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "5939c309-2680-49fe-aca5-b58f8d8e65a6",
+		"name": "Recruitment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35175328",
+		"_collection_link": "https://tenaga-kerja.postman.co/workspace/tenaga-kerja-Workspace~36bba3a6-f217-4226-8122-628bc8597c86/collection/35175328-5939c309-2680-49fe-aca5-b58f8d8e65a6?action=share&source=collection_link&creator=35175328"
+	},
+	"item": [
+		{
+			"name": "recruitment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "ID_user",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/recruit",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"recruit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "confirm_recruitment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "status",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/recruit/confirm/{id}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"recruit",
+						"confirm",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show_recruitment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/recruitments",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"recruitments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show_AllUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/userStatus",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"userStatus"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

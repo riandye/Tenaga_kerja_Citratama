@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "2f2edf8a-f8a3-4687-81ce-ca26912222ea",
+		"name": "jadwal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35175328",
+		"_collection_link": "https://tenaga-kerja.postman.co/workspace/36bba3a6-f217-4226-8122-628bc8597c86/collection/35175328-2f2edf8a-f8a3-4687-81ce-ca26912222ea?action=share&source=collection_link&creator=35175328"
+	},
+	"item": [
+		{
+			"name": "add_jadwal",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "tanggal",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "tempat",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "user_ids[]",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/jadwal/add",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"jadwal",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show_jadwal",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/jadwal",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"jadwal"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

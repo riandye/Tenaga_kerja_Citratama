@@ -1,0 +1,461 @@
+{
+	"info": {
+		"_postman_id": "c5cf8a51-9373-4f7b-8ec9-963930068ec8",
+		"name": "admin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35175328",
+		"_collection_link": "https://tenaga-kerja.postman.co/workspace/36bba3a6-f217-4226-8122-628bc8597c86/collection/35175328-c5cf8a51-9373-4f7b-8ec9-963930068ec8?action=share&source=collection_link&creator=35175328"
+	},
+	"item": [
+		{
+			"name": "add_user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "role",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "alamat",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "tempat_tanggal_lahir",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "no_hp",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "klasifikasi_pilihan",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "sub_klasifikasi_pilihan",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "email",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/admin/tambah-pelamar",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"admin",
+						"tambah-pelamar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "alamat",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "tempat_lahir",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "tanggal_lahir",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "no_hp",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "klasifikasi_pilihan",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "sub_klasifikasi_pilihan",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/admin/update-pelamar/{id}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"admin",
+						"update-pelamar",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show_user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/admin/pelamar",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"admin",
+						"pelamar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/admin/pelamar/{id}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"admin",
+						"pelamar",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_mitra",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "alamat",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "no_hp",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "bidang_usaha",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/admin/tambah-mitra",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"admin",
+						"tambah-mitra"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_mitra",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "alamat",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "no_hp",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "bidang_usaha",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/admin/update-mitra/{id}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"admin",
+						"update-mitra",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show_mitra",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/admin/mitra",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"admin",
+						"mitra"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_mitra",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/admin/mitra/{id}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"admin",
+						"mitra",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send_WA",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/admin/sendWA/{jadwal}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"admin",
+						"sendWA",
+						"{jadwal}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "approve_recruitment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/admin/approve/{recruitment}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"admin",
+						"approve",
+						"{recruitment}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://127.0.0.1:8000/api/",
+			"type": "string"
+		}
+	]
+}

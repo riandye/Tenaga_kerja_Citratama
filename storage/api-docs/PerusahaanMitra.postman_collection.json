@@ -1,0 +1,34 @@
+{
+	"info": {
+		"_postman_id": "a069d42f-9fd6-43f1-934e-149976d6683e",
+		"name": "PerusahaanMitra",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35175328",
+		"_collection_link": "https://tenaga-kerja.postman.co/workspace/36bba3a6-f217-4226-8122-628bc8597c86/collection/35175328-a069d42f-9fd6-43f1-934e-149976d6683e?action=share&source=collection_link&creator=35175328"
+	},
+	"item": [
+		{
+			"name": "show_userTersedia",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/userTersedia",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"userTersedia"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

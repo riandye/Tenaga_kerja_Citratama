@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "1375a628-73d9-41a8-80e4-1861ee321336",
+		"name": "pelamar_kerja",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35175328",
+		"_collection_link": "https://tenaga-kerja.postman.co/workspace/36bba3a6-f217-4226-8122-628bc8597c86/collection/35175328-1375a628-73d9-41a8-80e4-1861ee321336?action=share&source=collection_link&creator=35175328"
+	},
+	"item": [
+		{
+			"name": "datadiri",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "3|nAi18YZtOfRFWunm9yVWitL6hXPki8sPAumINX3M286a2630"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "alamat",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "tempat_lahir",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "tanggal_lahir",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "no_hp",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "klasifikasi_pilihan",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "sub_klasifikasi_pilihan",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "lokasi",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/datadiri",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"datadiri"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "showprofile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/show-profile",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"show-profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "summary",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "education",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "career",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "certificatios",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "skills",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "languages",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/update-profile/{id}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"update-profile",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

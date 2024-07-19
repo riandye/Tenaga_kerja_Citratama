@@ -1,0 +1,1311 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Documentation My API",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/admin/pelamar": {
+            "get": {
+                "tags": [
+                    "Admin-pelamar"
+                ],
+                "summary": "Get List pelamar kerja",
+                "description": "data pelamar kerja",
+                "operationId": "admin/showUser",
+                "responses": {
+                    "default": {
+                        "description": "return array model user"
+                    }
+                }
+            }
+        },
+        "/api/admin/tambah-pelamar": {
+            "post": {
+                "tags": [
+                    "Admin-pelamar"
+                ],
+                "summary": "Tambah data pelamar kerja",
+                "description": "Endpoint ini digunakan untuk menambah data pelamar kerja.",
+                "operationId": "admin/tambahUser",
+                "requestBody": {
+                    "description": "Form tambah pelamar kerja",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password",
+                                    "role",
+                                    "name"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "description": "Email dari pelamar kerja",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "Password untuk akun pelamar",
+                                        "type": "string"
+                                    },
+                                    "role": {
+                                        "description": "Role dari pengguna",
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "description": "Nama pelamar kerja",
+                                        "type": "string"
+                                    },
+                                    "alamat": {
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "tempat_tanggal_lahir": {
+                                        "description": "Tempat dan tanggal lahir pelamar kerja, format: Tempat, YYYY-MM-DD",
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "no_hp": {
+                                        "description": "Nomor HP pelamar kerja",
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "klasifikasi_pilihan": {
+                                        "description": "Klasifikasi pilihan pelamar kerja",
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "sub_klasifikasi_pilihan": {
+                                        "description": "Sub-klasifikasi pilihan pelamar kerja",
+                                        "type": "string",
+                                        "nullable": true
+                                    },
+                                    "photo": {
+                                        "description": "URL foto pelamar kerja",
+                                        "type": "string",
+                                        "format": "binary",
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "return array model user"
+                    }
+                }
+            }
+        },
+        "/api/admin/update-pelamar/{id}": {
+            "post": {
+                "tags": [
+                    "Admin-pelamar"
+                ],
+                "summary": "Update data user",
+                "description": "Update data user berdasarkan ID",
+                "operationId": "admin/updateUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID user yang ingin diperbarui",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Data yang akan diperbarui",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email"
+                                    },
+                                    "nama": {
+                                        "type": "string"
+                                    },
+                                    "alamat": {
+                                        "type": "string"
+                                    },
+                                    "tempat_lahir": {
+                                        "type": "string"
+                                    },
+                                    "tanggal_lahir": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "no_hp": {
+                                        "type": "string"
+                                    },
+                                    "klasifikasi_pilihan": {
+                                        "type": "string"
+                                    },
+                                    "sub_klasifikasi_pilihan": {
+                                        "type": "string"
+                                    },
+                                    "photo": {
+                                        "description": "URL foto pelamar kerja",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "return array model user"
+                    }
+                }
+            }
+        },
+        "/api/admin/pelamar/{id}": {
+            "delete": {
+                "tags": [
+                    "Admin-pelamar"
+                ],
+                "summary": "Hapus data user",
+                "description": "Hapus data user berdasarkan ID",
+                "operationId": "admin/deleteUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID user yang ingin dihapus",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "return array model user"
+                    }
+                }
+            }
+        },
+        "/api/admin/tambah-mitra": {
+            "post": {
+                "tags": [
+                    "Admin-mitra"
+                ],
+                "summary": "Tambah data perusahaan mitra",
+                "description": "Endpoint ini digunakan untuk menambah data perusahaan mitra.",
+                "operationId": "admin/tambahMitra",
+                "requestBody": {
+                    "description": "Form tambah perusahaan mitra",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password",
+                                    "role",
+                                    "name"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "role": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "alamat": {
+                                        "type": "string"
+                                    },
+                                    "no_hp": {
+                                        "description": "Nomor HP pelamar kerja",
+                                        "type": "string"
+                                    },
+                                    "bidang_usaha": {
+                                        "description": "Bidang usaha perusahaan mitra",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "return array model PerusahaanMitra"
+                    }
+                }
+            }
+        },
+        "/api/admin/update-mitra/{id}": {
+            "post": {
+                "tags": [
+                    "Admin-mitra"
+                ],
+                "summary": "Update data perusahaan mitra",
+                "description": "Update data berdasarkan ID",
+                "operationId": "admin/updateMitra",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID perusahaan mitra yang ingin diperbarui",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Data yang akan diperbarui",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "role": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "alamat": {
+                                        "type": "string"
+                                    },
+                                    "no_hp": {
+                                        "description": "Nomor HP pelamar kerja",
+                                        "type": "string"
+                                    },
+                                    "bidang_usaha": {
+                                        "description": "Bidang usaha perusahaan mitra",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "return array model PerusahaanMitra"
+                    }
+                }
+            }
+        },
+        "/api/admin/mitra": {
+            "get": {
+                "tags": [
+                    "Admin-mitra"
+                ],
+                "summary": "Get List perusahaan mitra",
+                "description": "data perusahaan mitra",
+                "operationId": "admin/showMitra",
+                "responses": {
+                    "default": {
+                        "description": "return array model PerusahaanMitra"
+                    }
+                }
+            }
+        },
+        "/api/admin/mitra/{id}": {
+            "delete": {
+                "tags": [
+                    "Admin-mitra"
+                ],
+                "summary": "Hapus data perusahaan mitra",
+                "description": "Hapus data berdasarkan ID",
+                "operationId": "admin/deleteMitra",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID yang ingin dihapus",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "return array model perusahaan mitra"
+                    }
+                }
+            }
+        },
+        "/api/admin/berita": {
+            "get": {
+                "tags": [
+                    "Admin-berita"
+                ],
+                "summary": "Get List berita",
+                "description": "data berita",
+                "operationId": "admin/showBerita",
+                "responses": {
+                    "default": {
+                        "description": "return array model user"
+                    }
+                }
+            }
+        },
+        "/api/admin/tambah-berita": {
+            "post": {
+                "tags": [
+                    "Admin-berita"
+                ],
+                "summary": "Tambah data berita",
+                "description": "Endpoint ini digunakan untuk menambah data berita.",
+                "operationId": "admin/tambahBerita",
+                "requestBody": {
+                    "description": "Form tambah berita",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "judul",
+                                    "konten"
+                                ],
+                                "properties": {
+                                    "judul": {
+                                        "type": "string"
+                                    },
+                                    "konten": {
+                                        "type": "string"
+                                    },
+                                    "tanggal": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "gambar": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "return array model berita"
+                    }
+                }
+            }
+        },
+        "/api/admin/update-berita/{id}": {
+            "post": {
+                "tags": [
+                    "Admin-berita"
+                ],
+                "summary": "Update data berita",
+                "description": "Update data berita berdasarkan ID",
+                "operationId": "admin/updateBerita",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID berita yang ingin diperbarui",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Data yang akan diperbarui",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "judul": {
+                                        "type": "string"
+                                    },
+                                    "konten": {
+                                        "type": "string"
+                                    },
+                                    "tanggal": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "gambar": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "return array model berita"
+                    }
+                }
+            }
+        },
+        "/api/admin/berita/{id}": {
+            "delete": {
+                "tags": [
+                    "Admin-berita"
+                ],
+                "summary": "Hapus data berita",
+                "description": "Hapus data berita berdasarkan ID",
+                "operationId": "admin/deleteBerita",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID berita yang ingin dihapus",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "return array model berita"
+                    }
+                }
+            }
+        },
+        "/api/admin/approve/{recruitment}": {
+            "post": {
+                "tags": [
+                    "Admin-approve"
+                ],
+                "summary": "Approve a recruitment",
+                "description": "Admin approves a recruitment request.",
+                "operationId": "approveRecruitment",
+                "parameters": [
+                    {
+                        "name": "ID_recruitment",
+                        "in": "path",
+                        "description": "ID of the recruitment to approve",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "return array model user"
+                    }
+                }
+            }
+        },
+        "/api/admin/sendWA/{jadwal}": {
+            "post": {
+                "tags": [
+                    "WhatsApp"
+                ],
+                "summary": "Send WhatsApp message to recipients based on schedule",
+                "description": "Sends a WhatsApp message to recipients based on the specified schedule ID.",
+                "operationId": "sendWhatsapp",
+                "parameters": [
+                    {
+                        "name": "ID_jadwal",
+                        "in": "path",
+                        "description": "ID of the schedule to send WhatsApp message for",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "return array model user"
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Login user or perusahaan mitra",
+                "description": "Endpoint untuk melakukan login bagi pengguna dan perusahaan mitra.",
+                "operationId": "login",
+                "requestBody": {
+                    "description": "Email dan password untuk login",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "user@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "password123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "return array model user"
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Logout user or perusahaan mitra",
+                "description": "Endpoint untuk melakukan logout bagi pengguna dan perusahaan mitra.",
+                "operationId": "logout",
+                "responses": {
+                    "200": {
+                        "description": "Successfully logged out"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Register a new user",
+                "description": "Endpoint untuk melakukan pendaftaran pengguna baru.",
+                "operationId": "register",
+                "requestBody": {
+                    "description": "Form pendaftaran",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password",
+                                    "password_confirmation"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "johndoe@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password123"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "return array model user"
+                    }
+                }
+            }
+        },
+        "/api/jadwal": {
+            "get": {
+                "tags": [
+                    "Jadwal"
+                ],
+                "summary": "Get List jadwal",
+                "description": "data jadwal",
+                "operationId": "indexJadwal",
+                "responses": {
+                    "default": {
+                        "description": "return array model jadwal"
+                    }
+                }
+            }
+        },
+        "/api/jadwal/add": {
+            "post": {
+                "tags": [
+                    "Jadwal"
+                ],
+                "summary": "Tambah data jadwal",
+                "description": "Endpoint ini digunakan untuk menambah data jadwal.",
+                "operationId": "tambahJadwal;",
+                "requestBody": {
+                    "description": "Form tambah jadwal",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "tanggal",
+                                    "tempat",
+                                    "user_ids"
+                                ],
+                                "properties": {
+                                    "tanggal": {
+                                        "type": "string"
+                                    },
+                                    "tempat": {
+                                        "type": "string"
+                                    },
+                                    "user_ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Jadwal berhasil ditambahkan",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Jadwal berhasil ditambahkan"
+                                        },
+                                        "jadwal": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Invalid input data"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorized"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/jadwal/{id}": {
+            "get": {
+                "tags": [
+                    "Jadwal"
+                ],
+                "summary": "Get List jadwal",
+                "description": "data jadwal",
+                "operationId": "showBerita",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID jadwal yang ingin diperbarui",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "return array model jadwal"
+                    }
+                }
+            }
+        },
+        "/api/jadwal/update/{id}": {
+            "post": {
+                "tags": [
+                    "Jadwal"
+                ],
+                "summary": "Update data jadwal",
+                "description": "Update data jadwal berdasarkan ID",
+                "operationId": "updateBerita",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID jadwal yang ingin diperbarui",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Data yang akan diperbarui",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "tanggal": {
+                                        "type": "string"
+                                    },
+                                    "tempat": {
+                                        "type": "string"
+                                    },
+                                    "user_ids": {
+                                        "type": "string",
+                                        "format": "array"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "return array model jadwal"
+                    }
+                }
+            }
+        },
+        "/api/datadiri": {
+            "post": {
+                "tags": [
+                    "Pelamar kerja"
+                ],
+                "summary": "Tambah data pelamar kerja",
+                "description": "Endpoint ini digunakan untuk menambah data pelamar kerja.",
+                "operationId": "datadiri",
+                "requestBody": {
+                    "description": "Form tambah pelamar kerja",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "alamat",
+                                    "tempat_tanggal_lahir",
+                                    "no_hp",
+                                    "klasifikasi_pilihan",
+                                    "sub_klasifikasi_pilihan"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "description": "Nama pelamar kerja",
+                                        "type": "string"
+                                    },
+                                    "alamat": {
+                                        "description": "Alamat pelamar kerja",
+                                        "type": "string"
+                                    },
+                                    "tempat_lahir": {
+                                        "description": "Tempat  lahir pelamar kerja",
+                                        "type": "string"
+                                    },
+                                    "tanggal_lahir": {
+                                        "description": "tanggal  lahir pelamar kerja",
+                                        "type": "string"
+                                    },
+                                    "lokasi": {
+                                        "description": "lokasi",
+                                        "type": "string"
+                                    },
+                                    "no_hp": {
+                                        "description": "Nomor HP pelamar kerja",
+                                        "type": "string"
+                                    },
+                                    "klasifikasi_pilihan": {
+                                        "description": "Klasifikasi pilihan pelamar kerja",
+                                        "type": "string"
+                                    },
+                                    "sub_klasifikasi_pilihan": {
+                                        "description": "Sub-klasifikasi pilihan pelamar kerja",
+                                        "type": "string"
+                                    },
+                                    "photo": {
+                                        "description": "URL foto pelamar kerja",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "return array model user"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/show-profile": {
+            "get": {
+                "tags": [
+                    "Pelamar kerja"
+                ],
+                "summary": "Get List pelamar kerja",
+                "description": "data pelamar kerja",
+                "operationId": "showprofile",
+                "responses": {
+                    "default": {
+                        "description": "return array model user"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/update-profile/{id}": {
+            "post": {
+                "tags": [
+                    "Pelamar kerja"
+                ],
+                "summary": "Update data user",
+                "description": "Update data user berdasarkan ID",
+                "operationId": "updateProfile",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID user yang ingin diperbarui",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Data yang akan diperbarui",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email"
+                                    },
+                                    "nama": {
+                                        "type": "string"
+                                    },
+                                    "alamat": {
+                                        "type": "string"
+                                    },
+                                    "tempat_lahir": {
+                                        "type": "string"
+                                    },
+                                    "tanggal_lahir": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "no_hp": {
+                                        "type": "string"
+                                    },
+                                    "klasifikasi_pilihan": {
+                                        "type": "string"
+                                    },
+                                    "sub_klasifikasi_pilihan": {
+                                        "type": "string"
+                                    },
+                                    "photo": {
+                                        "description": "URL foto pelamar kerja",
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "ringkasan_pribadi": {
+                                        "type": "string"
+                                    },
+                                    "pendidikan": {
+                                        "type": "string"
+                                    },
+                                    "riwayat_karir": {
+                                        "type": "string"
+                                    },
+                                    "sertifikat": {
+                                        "type": "string"
+                                    },
+                                    "keahlian": {
+                                        "type": "string"
+                                    },
+                                    "bahasa": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "return array model user"
+                    }
+                }
+            }
+        },
+        "/api/userTersedia": {
+            "get": {
+                "tags": [
+                    "PerusahaanMitra"
+                ],
+                "summary": "Get users available for recruitment",
+                "description": "Mengambil daftar pengguna yang tersedia untuk direkrut oleh perusahaan mitra.",
+                "operationId": "getUsersByStatus",
+                "responses": {
+                    "default": {
+                        "description": "return array model user"
+                    }
+                }
+            }
+        },
+        "/api/recruit": {
+            "post": {
+                "tags": [
+                    "Recruitment"
+                ],
+                "summary": "Recruit a user",
+                "description": "Perusahaan mitra melakukan recruitment terhadap user.",
+                "operationId": "recruit",
+                "requestBody": {
+                    "description": "ID user yang direcruit",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "ID_user"
+                                ],
+                                "properties": {
+                                    "ID_user": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "return array model user"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/recruit/confirm/{id}": {
+            "post": {
+                "tags": [
+                    "Recruitment"
+                ],
+                "summary": "Confirm recruitment",
+                "description": "Perusahaan mitra mengonfirmasi status recruitment user.",
+                "operationId": "confirmRecruitment",
+                "parameters": [
+                    {
+                        "name": "ID_recruitment",
+                        "in": "path",
+                        "description": "ID recruitment yang akan dikonfirmasi",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Status recruitment baru",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "status"
+                                ],
+                                "properties": {
+                                    "status": {
+                                        "type": "string",
+                                        "enum": [
+                                            "tersedia",
+                                            "menunggu",
+                                            "tidak tersedia"
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "return array model recruitment"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/recruitments": {
+            "get": {
+                "tags": [
+                    "Recruitment"
+                ],
+                "summary": "Show recruited users by logged in company partner",
+                "description": "Perusahaan mitra melihat daftar user yang direkrut olehnya.",
+                "operationId": "showRecruitment",
+                "responses": {
+                    "default": {
+                        "description": "return array model recruitment"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/userStatus": {
+            "get": {
+                "tags": [
+                    "Recruitment"
+                ],
+                "summary": "Get all users with latest recruitment status",
+                "description": "Mengambil semua pengguna beserta status rekrutmen terbaru mereka.",
+                "operationId": "userStatus",
+                "responses": {
+                    "default": {
+                        "description": "return array model recruitment"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Admin-pelamar",
+            "description": "Admin-pelamar"
+        },
+        {
+            "name": "Admin-pelamar",
+            "description": "Admin-pelamar"
+        },
+        {
+            "name": "Admin-pelamar",
+            "description": "Admin-pelamar"
+        },
+        {
+            "name": "Admin-pelamar",
+            "description": "Admin-pelamar"
+        },
+        {
+            "name": "Admin-mitra",
+            "description": "Admin-mitra"
+        },
+        {
+            "name": "Admin-mitra",
+            "description": "Admin-mitra"
+        },
+        {
+            "name": "Admin-mitra",
+            "description": "Admin-mitra"
+        },
+        {
+            "name": "Admin-mitra",
+            "description": "Admin-mitra"
+        },
+        {
+            "name": "Admin-berita",
+            "description": "Admin-berita"
+        },
+        {
+            "name": "Admin-berita",
+            "description": "Admin-berita"
+        },
+        {
+            "name": "Admin-berita",
+            "description": "Admin-berita"
+        },
+        {
+            "name": "Admin-berita",
+            "description": "Admin-berita"
+        },
+        {
+            "name": "Admin-approve",
+            "description": "Admin-approve"
+        },
+        {
+            "name": "WhatsApp",
+            "description": "WhatsApp"
+        },
+        {
+            "name": "Authentication",
+            "description": "Authentication"
+        },
+        {
+            "name": "Authentication",
+            "description": "Authentication"
+        },
+        {
+            "name": "Authentication",
+            "description": "Authentication"
+        },
+        {
+            "name": "Jadwal",
+            "description": "Jadwal"
+        },
+        {
+            "name": "Jadwal",
+            "description": "Jadwal"
+        },
+        {
+            "name": "Jadwal",
+            "description": "Jadwal"
+        },
+        {
+            "name": "Jadwal",
+            "description": "Jadwal"
+        },
+        {
+            "name": "Pelamar kerja",
+            "description": "Pelamar kerja"
+        },
+        {
+            "name": "Pelamar kerja",
+            "description": "Pelamar kerja"
+        },
+        {
+            "name": "Pelamar kerja",
+            "description": "Pelamar kerja"
+        },
+        {
+            "name": "PerusahaanMitra",
+            "description": "PerusahaanMitra"
+        },
+        {
+            "name": "Recruitment",
+            "description": "Recruitment"
+        },
+        {
+            "name": "Recruitment",
+            "description": "Recruitment"
+        },
+        {
+            "name": "Recruitment",
+            "description": "Recruitment"
+        },
+        {
+            "name": "Recruitment",
+            "description": "Recruitment"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearer": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    }
+}
