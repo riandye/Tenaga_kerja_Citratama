@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use App\Models\berita;
 use App\Models\jadwal;
+use App\Models\notifications;
 use App\Models\PenerimaJadwal;
 use App\Models\PerusahaanMitra;
 use App\Models\recruitment;
@@ -118,18 +119,6 @@ class AdminController extends Controller
             return response()->json($validator->errors(), 400);
         }
 
-        $tempatTanggalLahir = explode(',', $request->input('tempat_tanggal_lahir'));
-        if (count($tempatTanggalLahir) != 2) {
-            return response()->json(['error' => 'Format tempat dan tanggal lahir tidak valid.'], 400);
-        }
-    
-        $tempatLahir = trim($tempatTanggalLahir[0]);
-        $tanggalLahir = trim($tempatTanggalLahir[1]);
-    
-        if (!preg_match('/\d{4}-\d{2}-\d{2}/', $tanggalLahir)) {
-            return response()->json(['error' => 'Format tanggal lahir harus YYYY-MM-DD.'], 400);
-        }
-    
         /** @var \App\Models\User $user */
         $photoPath = $user->info['photo'] ?? null;
         if ($request->hasFile('photo')) {
@@ -144,7 +133,7 @@ class AdminController extends Controller
                 'name' => $request->name,
                 'alamat' => $request->alamat,
                 'tempat_lahir' => $request->tempat_lahir,
-                'tanggal_lahir' => $request->tangga_lLahir,
+                'tanggal_lahir' => $request->tanggal_lahir,
                 'no_HP' => $request->no_hp,
                 'photo' => $photoPath,
                 'klasifikasi_pilihan' => $request->klasifikasi_pilihan,
@@ -637,27 +626,7 @@ class AdminController extends Controller
         ->get();
         return response()->json($recruitments);
     }
- /**
- * @OA\Post(
- *     path="/api/admin/approve/{recruitment}",
- *     tags={"Admin-approve"},
- *     summary="Approve a recruitment",
- *     description="Admin approves a recruitment request.",
- *     operationId="approveRecruitment",
- *     @OA\Parameter(
- *         name="ID_recruitment",
- *         in="path",
- *         required=true,
- *         @OA\Schema(type="integer"),
- *         description="ID of the recruitment to approve"
- *     ),
- *     @OA\Response(
- *         response="default",
- *         description="return array model user"
- *     )
- *   )
- * )
- */
+
     public function approveRecruitment(Request $request, $ID_recruitment)
     {
         $recruitment = recruitment::find($ID_recruitment);
@@ -814,7 +783,7 @@ class AdminController extends Controller
         $admin = Admin::all();
         $notifications = notifications::where('notifiable_type', 'App\Models\Admin')
         ->where('notifiable_id', $admin->ID_admin)
-            ->get();
+        ->get();
 
 
         return response()->json($notifications);

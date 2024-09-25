@@ -85,8 +85,9 @@ class RecruitmentConversation extends Conversation
             if (in_array($response, ['yes', 'y', 'iya', 'ya'])) {
                 $this->askQuestion();
             } else {
-                $this->say("Semoga beruntung dalam mengikuti proses recruitment, semangat!");
+                $this->say("Saya tidak mengerti apa yang anda katakan");
             }
+            $this->askQuestion();
         });
     }
 }

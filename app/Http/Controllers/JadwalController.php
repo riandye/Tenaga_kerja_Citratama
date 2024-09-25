@@ -199,11 +199,13 @@ class JadwalController extends Controller
             'ID_mitra' => 'required|exists:perusahaan_mitra,ID_mitra',
             'tanggal' => 'required|date',
             'tempat' => 'required|string|max:255',
+            'jam' => 'required|string|regex:/^\d{2}:\d{2} - \d{2}:\d{2}$/',
         ]);
 
         $jadwal = jadwal::find($id);
         $jadwal->tanggal = $request->input('tanggal');
         $jadwal->tempat = $request->input('tempat');
+        $jadwal->jam = $request->input('jam');
         $jadwal->save();
 
         return response()->json('Jadwal berhasil diperbarui');

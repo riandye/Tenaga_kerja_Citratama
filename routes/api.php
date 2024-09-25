@@ -14,6 +14,8 @@ use App\Http\Controllers\PenerimaJadwal;
 use App\Http\Controllers\PenerimaJadwalController;
 use App\Http\Controllers\PerusahaanMitraController;
 use App\Http\Controllers\RecruitmentController;
+use App\Http\Controllers\chatbotController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\UserProfileController;
 use App\Models\PerusahaanMitra;
 use Laravel\Sanctum\Sanctum;
@@ -98,3 +100,7 @@ Route::post('/faq/add',[FAQController::class, 'store']);
 Route::post('/faq/update/{id}',[FAQController::class, 'update']);
 Route::delete('/faq/delete/{id}',[FAQController::class, 'destroy']);
 
+
+Route::post('/notification/read/{id}', [NotificationController::class, 'markAsRead']);
+
+Route::match(['get', 'post'], '/botman', [chatbotController::class, 'handle']);
